@@ -32,11 +32,12 @@ public class StsenaariumiHaldur {
      * Laadib kõik stsenaariumid erinevatest kategooriatest.
      */
     private void laadiStsenaariumid() {
-        // Hetkel loeme ainult phishingu stsenaariumid
-        // Hiljem lisame teised kategooriad
         try {
             PhishingStsenaariumid phishing = new PhishingStsenaariumid();
             stsenaariumid.addAll(phishing.looStsenaariumid());
+
+            ParooliStsenaariumid paroolid = new ParooliStsenaariumid();
+            stsenaariumid.addAll(paroolid.looStsenaariumid());
         } catch (Exception e) {
             System.err.println("Viga stsenaariumite laadimisel: " + e.getMessage());
             e.printStackTrace();
